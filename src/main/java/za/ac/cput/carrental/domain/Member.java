@@ -1,6 +1,7 @@
 package za.ac.cput.carrental.domain;
 
 public class Member {
+
     private String memberId;
     private String name;
     private String licenseNumber;
@@ -10,7 +11,6 @@ public class Member {
     public Member(){
 
     }
-
 
     private Member(Builder builder) {
         this.memberId = builder.memberId;
@@ -68,9 +68,15 @@ public class Member {
             return this;
         }
 
+        public Builder copy(Member member) {
+            this.memberId = member.getMemberId();
+            this.name = member.getName();
+            this.licenseNumber = member.getLicenseNumber();
+            this.phoneNumber = member.getPhoneNumber();
+            this.accountStatus = member.getAccountStatus();
+            return this;
+        }
+
         public Member build(){return new Member(this);}
     }
-
 }
-
-
