@@ -91,6 +91,7 @@ public class Insurance {
             this.type         = insurance.getType();
             this.dailyPremium = insurance.getDailyPremium();
             return this;
+
         }
         public Insurance build() {
             return new Insurance(this);
