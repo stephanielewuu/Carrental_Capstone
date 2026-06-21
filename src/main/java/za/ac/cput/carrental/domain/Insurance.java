@@ -1,6 +1,6 @@
 /* Insurance.java
    Insurance entity class - Builder Pattern
-   Author: Thandeka Chantal Malande
+   Author: Thandeka Chantal Malande - 222857005
    Date: 21 June 2026 */
 
 package za.ac.cput.carrental.domain;
@@ -79,12 +79,20 @@ public class Insurance {
             return this;
         }
 
+
         public Builder setDailyPremium(double dailyPremium) {
             this.dailyPremium = dailyPremium;
             return this;
         }
 
+        public Builder copy(Insurance insurance) {
+            this.insuranceId  = insurance.getInsuranceId();
+            this.bookingId    = insurance.getBookingId();
+            this.type         = insurance.getType();
+            this.dailyPremium = insurance.getDailyPremium();
+            return this;
 
+        }
         public Insurance build() {
             return new Insurance(this);
         }
