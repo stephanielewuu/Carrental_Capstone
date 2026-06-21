@@ -5,12 +5,8 @@ package za.ac.cput.carrental.domain;
      Author: Malwandla Blessing Mahori (230962963)
      Date: 21 June 2026 */
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 
 import java.util.Objects;
 
