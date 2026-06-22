@@ -8,9 +8,10 @@ public class Member {
     private int phoneNumber;
     private String accountStatus;
 
-    public Member(){
+    protected Member(){
 
     }
+
 
     private Member(Builder builder) {
         this.memberId = builder.memberId;
@@ -77,6 +78,8 @@ public class Member {
             return this;
         }
 
-        public Member build(){return new Member(this);}
+        public Member build() {
+            return new Member(this);
+        }
     }
 }
