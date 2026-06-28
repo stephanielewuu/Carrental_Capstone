@@ -13,12 +13,13 @@ public class Booking {
     private String memberId;
     private String carId;
     private String startDate;
-    private String  endDate;
+    private String endDate;
     private double totalCost;
 
-    protected Booking(){}
+    protected Booking() {
+    }
 
-    private Booking(Builder builder){
+    private Booking(Builder builder) {
         this.bookingId = builder.bookingId;
         this.memberId = builder.memberId;
         this.carId = builder.carId;
@@ -27,21 +28,38 @@ public class Booking {
         this.totalCost = builder.totalCost;
     }
 
-    public String getBookingId(){return bookingId;}
-    public String getMemberId(){return memberId;}
-    public String getCarId(){return carId;}
-    public String getStartDate(){return startDate;}
-    public String getEndDate(){return endDate;}
-    public double getTotalCost(){return totalCost;}
+    public String getBookingId() {
+        return bookingId;
+    }
 
-    public int calculateRentalDuration(){
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public String getCarId() {
+        return carId;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public int calculateRentalDuration() {
         LocalDate start = LocalDate.parse(startDate);
         LocalDate end = LocalDate.parse(endDate);
         int days = end.getDayOfYear() - start.getDayOfYear();
-        return days/365;
+        return days / 365;
     }
 
-    public void extendRental(String newEndDate){
+    public void extendRental(String newEndDate) {
         this.endDate = newEndDate;
     }
 
@@ -57,53 +75,61 @@ public class Booking {
                 '}';
     }
 
-    public static class Builder{
-        private String bookingId;
+    public static class Builder {
+        public String bookingId;
         private String memberId;
         private String carId;
         private String startDate;
         private String endDate;
         private double totalCost;
 
-public Builder BookingId(String bookingId){
-    this.bookingId = bookingId;
-    return this;
-}
-public Builder MemberId(String memberId){
-    this.memberId = memberId;
-    return this;
-}
-public Builder CarId(String carId){
-    this.carId = carId;
-    return this;
-}
-public Builder StartDate(String startDate){
-    this.startDate = startDate;
-    return this;
-}
-public Builder EndDate(String endDate){
-    this.endDate = endDate;
-    return this;
-}
-public Builder setTotalCost(double totalCost){
-    this.totalCost = totalCost;
-    return this;
-}
-public Builder copy(Booking book){
-    this.bookingId = book.bookingId;
-    this.memberId = book.memberId;
-    this.carId = book.carId;
-    this.startDate = book.startDate;
-    this.endDate = book.endDate;
-    this.totalCost = book.totalCost;
-    return this;
+        public Builder setBookingId(String bookingId) {
+            this.bookingId = bookingId;
+            return this;
+        }
 
-}
+        public Builder setMemberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
 
-public Booking build(){
-    return new Booking(this);
-}
+        public Builder setCarId(String carId) {
+            this.carId = carId;
+            return this;
+        }
+
+        public Builder setStartDate(String startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+        public Builder setEndDate(String endDate) {
+            this.endDate = endDate;
+            return this;
+        }
+
+        public Builder setTotalCost(double totalCost) {
+            this.totalCost = totalCost;
+            return this;
+        }
+
+        public Builder copy(Booking book) {
+            this.bookingId = book.bookingId;
+            this.memberId = book.memberId;
+            this.carId = book.carId;
+            this.startDate = book.startDate;
+            this.endDate = book.endDate;
+            this.totalCost = book.totalCost;
+            return this;
+
+        }
+
+        public Booking build() {
+            return new Booking(this);
+
+        }
     }
 }
+
 
 
